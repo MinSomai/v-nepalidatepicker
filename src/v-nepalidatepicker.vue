@@ -1,12 +1,19 @@
 <template>
   <div class="datepicker" @click.stop>
-    <input
-      type="text"
+    <slot
+      :show="show"
+      :formatedValue="formatedValue"
       :class="this.classValue"
-      v-model="formatedValue"
-      @focus="show()"
       :placeholder="this.placeholder"
-    />
+    >
+      <input
+        type="text"
+        :class="this.classValue"
+        v-model="formatedValue"
+        @focus="show()"
+        :placeholder="this.placeholder"
+      />
+    </slot>
     <div v-if="visible" :class="['calendar', { show: visible }]">
       <div class="calendar__header">
         <div class="calendar__year">{{ formatedYear }}</div>
@@ -24,10 +31,10 @@
             v-model="monthValue"
             size="mini"
             v-if="this.monthSelect"
-            style=" "
+            style=""
           >
             <option
-              style="text-align-last:center"
+              style="text-align-last: center"
               v-for="(month, index) in getMonthsList"
               :key="month"
               :label="month"
@@ -41,10 +48,10 @@
             v-model="yearValue"
             size="mini"
             v-if="this.yearSelect"
-            style="margin-left:5px"
+            style="margin-left: 5px"
           >
             <option
-              style="text-align-last:center"
+              style="text-align-last: center"
               v-for="i in numberofYears"
               :key="i"
               :value="startingYear + (i - 1)"
@@ -53,16 +60,15 @@
                   ? getNepaliDateWithYear(startingYear + (i - 1)).substr(0, 4)
                   : startingYear + (i - 1)
               "
-            >
-            </option>
+            ></option>
           </select>
           <button icon="el-icon-arrow-right" @click="next()"><b>></b></button>
         </div>
         <!-- week days -->
-        <div style="padding:3px">
+        <div style="padding: 3px">
           <div class="calendar__weeks">
             <div
-              style="font-weight: bold;"
+              style="font-weight: bold"
               class="calendar__weekday"
               v-for="(weekday, w) in weekdays"
               :key="w"
@@ -153,7 +159,7 @@ export default {
       return this.formatNepali ? NEPALI_WEEK : ENGLISH_WEEK;
     },
     days() {
-      YEAR_DATES.forEach((yearData) => {
+      YEAR_DATES.forEach(yearData => {
         if (yearData.year == this.date.year) {
           yearData.value.forEach((data, index) => {
             // compare monthValue selected to index of yearData value
