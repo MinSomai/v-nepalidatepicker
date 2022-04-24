@@ -1,8 +1,10 @@
-# Nepali Date Picker 
+# Nepali Date Picker Vue 2 
 
-> An easy-to-use and customizable nepali date picker component for vue2.
+An easy-to-use and customizable nepali date picker component for vue2.
 
-# Demo: 
+[![npm version](https://badge.fury.io/js/@minsomai%2Fv-nepalidatepicker.svg)](https://badge.fury.io/js/@minsomai%2Fv-nepalidatepicker)
+
+##### Demo: 
 
 https://codesandbox.io/s/v-nepalidatepicker-z0sw3h
 
@@ -28,6 +30,18 @@ export default {
 }
 ```
 
+## Customizable Properties
+
+The following customizable properties can be added to the component
+
+1. classValue 
+2. calenderType
+3. placeholder
+4. format
+5. value
+6. yearSelect
+7. monthSelect
+
 ## Examples - replace the input field to suit your needs
 
 Here, we're using [vuetifyjs](https://vuetifyjs.com/) input field to replace the default input field with the scoped slot feature of vuejs.
@@ -38,9 +52,7 @@ Here, we're using [vuetifyjs](https://vuetifyjs.com/) input field to replace the
     <v-text-field
       v-model="scope.formatedValue"
       @focus="scope.show"
-      prepend-icon="mdi-calendar"
       readonly
-      class="rule-item_value"
       solo
       hide-details
       flat
@@ -61,18 +73,6 @@ export default {
 }
 <script>
 ```
-
-## Customizable Properties
-
-The following customizable properties can be added to the component
-
-1. classValue 
-2. calenderType
-3. placeholder
-4. format
-5. value
-6. yearSelect
-7. monthSelect
 
 ## Examples - classValue
 

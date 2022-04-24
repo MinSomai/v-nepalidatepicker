@@ -1,6 +1,6 @@
 {
   "name": "@minsomai/v-nepalidatepicker",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "description": "Nepali Date Picker component for Vue js",
   "main": "dist/v-nepalidatepicker.ssr.js",
   "browser": "dist/v-nepalidatepicker.esm.js",
@@ -60,7 +60,7 @@
   "engines": {
     "node": ">=10"
   },
-  "author": "Krijan Niroula",
+  "author": "Min Somai",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/minsomai/v-nepalidatepicker/issues"
