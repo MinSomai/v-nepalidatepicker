@@ -22,7 +22,7 @@
       <div class="calendar__body">
         <!-- month -->
         <div class="calendar__month">
-          <button class="calendar__month__prev" @click="prev()">
+          <button type="button" class="calendar__month__prev" @click="prev()">
             <b>></b>
           </button>
           <span>{{ formatedYearOrMonth }}</span>
@@ -62,7 +62,9 @@
               "
             ></option>
           </select>
-          <button icon="el-icon-arrow-right" @click="next()"><b>></b></button>
+          <button type="button" icon="el-icon-arrow-right" @click="next()">
+            <b>></b>
+          </button>
         </div>
         <!-- week days -->
         <div style="padding: 3px">
@@ -98,7 +100,7 @@
         </div>
       </div>
       <div class="calendar__footer">
-        <button @click="today()">{{ formatedTodayText }}</button>
+        <button type="button" @click="today()">{{ formatedTodayText }}</button>
       </div>
     </div>
   </div>
