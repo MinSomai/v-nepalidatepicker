@@ -1,6 +1,6 @@
 {
   "name": "@minsomai/v-nepalidatepicker",
-  "version": "1.2.5",
+  "version": "1.2.7",
   "description": "Nepali Date Picker component for Vue js 2",
   "main": "dist/v-nepalidatepicker.ssr.js",
   "browser": "dist/v-nepalidatepicker.esm.js",

@@ -14,7 +14,11 @@
         :placeholder="this.placeholder"
       />
     </slot>
-    <div v-if="visible" :class="['calendar', { show: visible }]">
+    <div
+      v-if="visible"
+      :width="`${width}px`"
+      :class="['calendar', { show: visible }]"
+    >
       <div class="calendar__header">
         <div class="calendar__year">{{ formatedYear }}</div>
         <div class="calendar__date">{{ formatedDate }}</div>
@@ -23,7 +27,15 @@
         <!-- month -->
         <div class="calendar__month">
           <button type="button" class="calendar__month__prev" @click="prev()">
-            <b>></b>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              role="img"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              ></path>
+            </svg>
           </button>
           <span>{{ formatedYearOrMonth }}</span>
           <select
@@ -63,14 +75,24 @@
             ></option>
           </select>
           <button type="button" icon="el-icon-arrow-right" @click="next()">
-            <b>></b>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              role="img"
+            >
+              <path
+                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              ></path>
+            </svg>
           </button>
         </div>
         <!-- week days -->
-        <div style="padding: 3px">
+        <div
+          style="padding: 3px"
+          :style="showToday ? '' : 'padding-bottom: 10px;'"
+        >
           <div class="calendar__weeks">
             <div
-              style="font-weight: bold"
               class="calendar__weekday"
               v-for="(weekday, w) in weekdays"
               :key="w"
@@ -99,7 +121,7 @@
           </div>
         </div>
       </div>
-      <div class="calendar__footer">
+      <div v-if="showToday" class="calendar__footer">
         <button type="button" @click="today()">{{ formatedTodayText }}</button>
       </div>
     </div>
@@ -120,11 +142,13 @@ export default {
   props: {
     value: { type: String, default: "" },
     format: { type: String, default: "YYYY-MM-DD" },
-    calenderType: { type: String, default: "English" },
+    calendarType: { type: String, default: "English" },
     yearSelect: { type: Boolean, default: true },
     monthSelect: { type: Boolean, default: true },
     classValue: { type: String, default: "" },
     placeholder: { type: String, default: "" },
+    showToday: { type: Boolean, default: false },
+    width: { type: Number, default: 250 },
   },
   model: {
     event: "change",
@@ -136,7 +160,7 @@ export default {
       visible: false,
       startingYear: 2001,
       numberofYears: 87,
-      formatNepali: this.calenderType == "Nepali" ? true : false,
+      formatNepali: this.calendarType == "Nepali" ? true : false,
       endDay: null,
       yearValue:
         this.value == ""
@@ -293,6 +317,23 @@ export default {
 };
 </script>
 
+<style>
+:root {
+  --primary-color-base: #5495c5;
+  --primary-color-dark: #247ac4;
+  --secondary-color-base: #dfeffc;
+  --primary-radius: 5px;
+  --calendar-day-selected-bg-color: #248ac4;
+  --calendar-day-today-bg-color: #f77777;
+  --calendar-day-border-radius: 3px;
+  --calendar-day-bg-color: white;
+  --calendar-day-text-color: #1c94b7;
+  --calendar-day-font-weight: normal;
+  --calendar-week-font-weight: normal;
+  --calendar-select-border-radius: 5px;
+}
+</style>
+
 <style scoped>
 * {
   margin: 0;
@@ -312,13 +353,14 @@ export default {
 .calendar {
   z-index: 9;
   position: absolute;
-  width: 260px;
   top: 100%;
   box-shadow: 0px 14px 45px rgba(0, 0, 0, 0.25),
     0px 10px 18px rgba(0, 0, 0, 0.22);
   background: #fff;
   visibility: hidden;
   opacity: 0;
+  border-radius: var(--primary-radius);
+  overflow: hidden;
   /* transform: translateY(-50%) translateX(50%); */
   /* transition: all 0.3s linear; */
 }
@@ -330,8 +372,13 @@ export default {
 .calendar__header {
   padding: 15px 10px;
   /* border-radius: 10px; */
-  background: #5495c5;
+  background: var(--primary-color-base);
   color: #fff;
+}
+.calendar__body {
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .calendar__year {
   opacity: 0.6;
@@ -351,22 +398,25 @@ export default {
 .calendar__month select {
   height: 28px;
   width: 100px;
-  border-radius: 5px;
-  border-color: #7ca3f1;
+  border: none;
+  border-radius: var(--calendar-day-border-radius);
   text-align-last: center;
 }
 .calendar__month button {
-  width: 25px;
+  width: 36px;
+  height: 36px;
+  padding: 7px;
   margin-right: 4px;
-  height: 28px;
   margin-left: 4px;
-  border-radius: 5px;
+  border-radius: 50%;
   color: white;
   text-align: center;
-  background: #247ac4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .calendar__month button:hover {
-  background: rebeccapurple;
+  background: #dedede;
 }
 .calendar__month__prev {
   transform: rotate(180deg);
@@ -378,6 +428,7 @@ export default {
 }
 .calendar__days {
   gap: 4px;
+  padding-top: 10px;
 }
 .calendar__day,
 .calendar__weekday {
@@ -386,30 +437,29 @@ export default {
 }
 .calendar__weekday {
   opacity: 0.8;
-  font-weight: 300;
+  font-weight: var(--calendar-week-font-weight);
 }
 .calendar__day {
   width: 32px;
   height: 32px;
   line-height: 32px;
-  font-weight: 300;
-  color: #1c94b8;
-  font-weight: bold;
+  font-weight: var(--calendar-day-font-weight);
   cursor: pointer;
-  border-radius: 5px;
-  background: #dfeffc;
+  border-radius: var(--calendar-day-border-radius);
+  background: var(--calendar-day-bg-color);
+  color: var(--calendar-day-text-color);
   /* transition: all 0.3s ease-in-out; */
 }
 .calendar__day.selected {
-  background: rebeccapurple;
+  background: var(--calendar-day-selected-bg-color);
   color: #fff;
 }
 .calendar__day.today {
-  background: #f77777;
+  background: var(--calendar-day-today-bg-color);
   color: #fff;
 }
 .calendar__day:hover {
-  background: rebeccapurple;
+  background: var(--primary-color-base);
   color: #fff;
   opacity: 0.8;
 }
