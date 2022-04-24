@@ -8,6 +8,8 @@ An easy-to-use and customizable nepali date picker component for vue2.
 
 https://codesandbox.io/s/v-nepalidatepicker-z0sw3h
 
+![Screenshot](screenshot.png)
+
 ## Install
 
 ```shell
