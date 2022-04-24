@@ -47,6 +47,11 @@ The following customizable properties can be added to the component
 8. showToday
 9. width
 
+Events
+
+1. @change - date string, emitted whenever the date changes
+2. @ad - nepali to english converted date, emited whenever the date changes
+
 ## Examples - replace the input field to suit your needs
 
 Here, we're using [vuetifyjs](https://vuetifyjs.com/) input field to replace the default input field with the scoped slot feature of vuejs.

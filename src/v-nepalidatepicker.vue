@@ -292,7 +292,15 @@ export default {
     select(date) {
       this.date = date;
       this.formatedValue = this.date.format(this.format);
-      this.$emit("change", this.formatedValue);
+
+      let nepaliDate = new NepaliDate(this.formatedValue);
+      let engDate = new Date(
+        nepaliDate.getEnglishDate() - new Date().getTimezoneOffset() * 60000
+      )
+        .toISOString()
+        .substr(0, 10);
+
+      this.$emit("ad", engDate);
       this.hide();
     },
     show() {
