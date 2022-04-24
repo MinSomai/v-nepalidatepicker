@@ -9,11 +9,11 @@ https://codesandbox.io/s/quizzical-banzai-mv19x
 
 ## Install
 ```shell
-npm install v-nepalidatepicker
+npm install @minsomai/v-nepalidatepicker
 
 OR
 
-yarn add v-nepalidatepicker
+yarn add @minsomai/v-nepalidatepicker
 ```
 
 ## Quick Start

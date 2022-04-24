@@ -1,6 +1,6 @@
 {
-  "name": "v-nepalidatepicker",
-  "version": "1.2.1",
+  "name": "@minsomai/v-nepalidatepicker",
+  "version": "1.2.2",
   "description": "Nepali Date Picker component for Vue js",
   "main": "dist/v-nepalidatepicker.ssr.js",
   "browser": "dist/v-nepalidatepicker.esm.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krijanniroula/v-nepalidatepicker.git"
+    "url": "git+https://github.com/minsomai/v-nepalidatepicker.git"
   },
   "keywords": [
     "nepalidatepicker",
@@ -63,7 +63,7 @@
   "author": "Krijan Niroula",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krijanniroula/v-nepalidatepicker/issues"
+    "url": "https://github.com/minsomai/v-nepalidatepicker/issues"
   },
-  "homepage": "https://github.com/krijanniroula/v-nepalidatepicker#readme"
+  "homepage": "https://github.com/minsomai/v-nepalidatepicker#readme"
 }
