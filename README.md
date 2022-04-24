@@ -196,10 +196,10 @@ The dropdown month select can be turned off using boolean type to monthSelect
 
 ## Examples - events
 
-YOu can listed to `@change`, `@event`
+You can listen to `@change`, `@event`
 
 ```vue
-// example to listed to @ad event
+// example to listen @ad event
 <template>
   <v-nepalidatepicker @ad="dateInAD">
 </template>
