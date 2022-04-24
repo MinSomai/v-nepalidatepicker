@@ -1,10 +1,10 @@
-# nepali-datepicker-vuejs
+# Nepali Date Picker 
 
-> An easy-to-use and customizable nepali date picker component powered by Vue js
+> An easy-to-use and customizable nepali date picker component for vue2.
 
 # Demo: 
 
-https://codesandbox.io/s/quizzical-banzai-mv19x
+https://codesandbox.io/s/v-nepalidatepicker-z0sw3h
 
 
 ## Install
@@ -18,7 +18,7 @@ yarn add @minsomai/v-nepalidatepicker
 
 ## Quick Start
 ``` javascript
-import VNepaliDatePicker from 'v-nepalidatepicker';
+import VNepaliDatePicker from '@minsomai/v-nepalidatepicker';
 
 export default {
   components: {
@@ -26,15 +26,40 @@ export default {
   },
   // rest of the component
 }
+```
 
-Or even used via <script> tag in the browser directly:
+## Examples - replace the input field to suit your needs
 
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/v-nepalidatepicker"></script>
-...
-<v-nepalidatepicker />
-...
+Here, we're using [vuetifyjs](https://vuetifyjs.com/) input field to replace the default input field with the scoped slot feature of vuejs.
 
+``` javascript
+<template>
+  <VNepaliDatePicker v-slot="scope">
+    <v-text-field
+      v-model="scope.formatedValue"
+      @focus="scope.show"
+      prepend-icon="mdi-calendar"
+      readonly
+      class="rule-item_value"
+      solo
+      hide-details
+      flat
+      outlined
+      dense
+      label="Select Date"
+    ></v-text-field>
+  </VNepaliDatePicker>
+</template>
+
+<script>
+import VNepaliDatePicker from '@minsomai/v-nepalidatepicker';
+
+export default {
+  components: {
+    VNepaliDatePicker,
+  },
+}
+<script>
 ```
 
 ## Customizable Properties
