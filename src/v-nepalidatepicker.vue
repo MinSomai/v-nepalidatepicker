@@ -301,6 +301,8 @@ export default {
         .substr(0, 10);
 
       this.$emit("ad", engDate);
+      this.$emit("change", this.formatedValue);
+      this.$emit("input", this.formatedValue);
       this.hide();
     },
     show() {

@@ -7,9 +7,17 @@ export default Vue.extend({
   components: {
     VNepalidatepicker,
   },
+  data() {
+    return {
+      date: "",
+    };
+  },
   methods: {
     dateInAD(val) {
-      console.log(val);
+      console.log("ad: ", val);
+    },
+    dateInBS(val) {
+      console.log("bs: ", val);
     },
   },
 });
@@ -17,8 +25,14 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <v-nepalidatepicker v-slot="scope" @ad="dateInAD">
+    <v-nepalidatepicker
+      v-model="date"
+      v-slot="scope"
+      @ad="dateInAD"
+      @change="dateInBS"
+    >
       <input type="text" v-model="scope.formatedValue" @focus="scope.show" />
     </v-nepalidatepicker>
+    {{ date }}
   </div>
 </template>
