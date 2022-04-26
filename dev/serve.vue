@@ -5,11 +5,11 @@ import VNepalidatepicker from "@/v-nepalidatepicker.vue";
 export default Vue.extend({
   name: "ServeDev",
   components: {
-    VNepalidatepicker,
+    VNepalidatepicker
   },
   data() {
     return {
-      date: "",
+      date: ""
     };
   },
   methods: {
@@ -18,8 +18,8 @@ export default Vue.extend({
     },
     dateInBS(val) {
       console.log("bs: ", val);
-    },
-  },
+    }
+  }
 });
 </script>
 

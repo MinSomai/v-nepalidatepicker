@@ -99,7 +99,7 @@ export const YEAR_DATES = [
   { year: 2096, value: [30, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
   { year: 2097, value: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30] },
   { year: 2098, value: [31, 31, 32, 31, 31, 31, 29, 30, 29, 30, 29, 31] },
-  { year: 2099, value: [31, 31, 32, 31, 31, 31, 30, 29, 29, 30, 30, 30] },
+  { year: 2099, value: [31, 31, 32, 31, 31, 31, 30, 29, 29, 30, 30, 30] }
 ];
 
 export const ENGLISH_WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -111,7 +111,7 @@ export const NEPALI_WEEK = [
   "बुध",
   "बिहि",
   "शुक्र",
-  "शनि",
+  "शनि"
 ];
 
 export const ENGLISH_NEPALI_MONTH = [
@@ -126,7 +126,7 @@ export const ENGLISH_NEPALI_MONTH = [
   "Poush",
   "Magh",
   "Falgun",
-  "Chaitra",
+  "Chaitra"
 ];
 
 export const NEPALI_MONTH = [
@@ -141,6 +141,5 @@ export const NEPALI_MONTH = [
   "पौष",
   "माघ",
   "फाल्गुण",
-  "चैत्र",
+  "चैत्र"
 ];
-
